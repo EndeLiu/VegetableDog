@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './assets/css/common.scss'
 // import App from './App';
 import Home from './pages/Home'
+import Receipe from './pages/Receipe'
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    {/* <Home /> */}
+    <Receipe />
   </React.StrictMode>,
   document.getElementById('root')
 );

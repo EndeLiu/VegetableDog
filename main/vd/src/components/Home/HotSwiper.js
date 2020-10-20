@@ -1,4 +1,7 @@
 import React from 'react'
+
+import Cover from '../common/Cover'
+
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Autoplay, Pagination} from 'swiper'
 import SwiperCore from 'swiper'
@@ -57,7 +60,6 @@ class HotSwiper extends React.Component {
     ]
     const testRecipe = testRecipeList.map((i, index) => {
       const getReceipeClass = (centerIndex, index) => {
-        console.log(testRecipeList[centerIndex].name, testRecipeList[index].name)
         if (index === centerIndex) {
           return 'receipe-center'
         } else if (Math.abs(centerIndex - index) === 1 || 
@@ -73,10 +75,7 @@ class HotSwiper extends React.Component {
         <SwiperSlide key={index}>
           <div className={`receipe-index-item ${getReceipeClass(this.state.curIndex, index)}`}>    
             <span className="receipe-name">{i.name}</span>
-            <div className="receipe-cover">     
-              <img src={i.src} alt=""></img>
-              <div className='receipe-desc'>{i.desc}</div>
-            </div>
+            <Cover src={i.src} desc={i.desc} />
           </div>
           
         </SwiperSlide>
@@ -92,8 +91,8 @@ class HotSwiper extends React.Component {
         <div className="receipe-swiper-wrapper">
           <Swiper
             onSlideChangeTransitionEnd={this.sliderChange}
-            autoplay={false}
-            spaceBetween={10}
+            autoplay={true}
+            spaceBetween={20}
             slidesPerView={5}
             loop={true}
             centeredSlides={true}

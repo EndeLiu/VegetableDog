@@ -6,7 +6,7 @@ import indexLogo from '../assets/img/index.png'
 
 function Home () {
   return (
-    <div>
+    <div className="home-page">
       <div className="index-logo">
         <img src={indexLogo} alt=""></img>
       </div>

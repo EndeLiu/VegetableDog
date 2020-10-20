@@ -1,0 +1,48 @@
+.receipe-page {
+  display: flex;
+  height: 100vh;
+  align-items: flex-start;
+  padding: 10px;
+  flex-direction: column;
+  .top {
+    height: 80%;
+    max-height: 600px;
+  }
+  .bottom {
+    height: 20%;
+  }
+
+  .row-flex {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    .receipe-base-info {
+      width: 25%;
+      height: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .receipe-cover {
+        height: 200px!important;
+        box-shadow: none;
+      }
+      .tag-group {
+        margin-top: 10px;
+      }
+    }
+    .receipe-materials {
+      padding: 10px;
+      width: 50%;
+      height: 100%;
+    }
+    .receipe-make-progress {
+      padding: 10px;
+      width: 25%;
+      height: 100%;
+    }
+  }
+  
+}
+

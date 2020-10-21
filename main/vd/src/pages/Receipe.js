@@ -7,11 +7,25 @@ import CornerLabelBox from '../components/common/CornerLabelBox'
 
 import {Table, Steps} from 'antd'
 
+import axios from 'axios'
+
 class Receipe extends React.Component {
-  render (props) {
+  // constructor (props) {
+  //   super(props)
+  // }
+
+  componentDidMount () {
+    console.log(this.props)
+    axios.get('/api/receipe').then((res) => {
+      console.log(res)
+    })
+  }
+
+
+  render () {
     const { Step } = Steps;
     const src = '//www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'
-    const desc = '这里是简介'
+    // const desc = '这里是简介'
     const labels = ['好吃', '肉', '特色']
     const dataSource = [
       {

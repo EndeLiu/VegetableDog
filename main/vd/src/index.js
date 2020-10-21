@@ -8,10 +8,14 @@ import Receipe from './pages/Receipe'
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css'
 
+import {HashRouter as Router, Route} from 'react-router-dom' 
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Home /> */}
-    <Receipe />
+    <Router>
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/receipe" component={Receipe}></Route>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

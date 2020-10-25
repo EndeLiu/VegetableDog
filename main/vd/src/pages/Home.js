@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeSearch from '../components/Home/HomeSearch'
 import HotSwiper from '../components/Home/HotSwiper'
-import indexLogo from '../assets/img/index.png'
+import indexLogo from '../assets/img/vegetable dog.png'
 import axios from 'axios'
 
 

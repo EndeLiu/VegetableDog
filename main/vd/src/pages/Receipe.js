@@ -10,23 +10,30 @@ import {Table, Steps} from 'antd'
 import axios from 'axios'
 
 class Receipe extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  // }
+  constructor (props) {
+    super(props)
+    this.state = {
+      target: null
+    }
+  }
 
   componentDidMount () {
     console.log(this.props)
-    axios.get('/api/receipe').then((res) => {
-      console.log(res)
+    axios.get('/api/receipe/details' + this.props.location.search).then((res) => {
+      if (res.status === 200 && res.data) {
+        this.setState({
+          target: res.data
+        })
+      }
     })
   }
 
 
   render () {
     const { Step } = Steps;
-    const src = '//www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'
+    let src = '../assets/img/noCover.png'
     // const desc = '这里是简介'
-    const labels = ['好吃', '肉', '特色']
+    let labels = ['好吃', '肉', '特色']
     const dataSource = [
       {
         key: '1',
@@ -71,6 +78,12 @@ class Receipe extends React.Component {
         key: 'unit',
       },
     ]
+
+    if (this.state.target) {
+      src = this.state.target.src
+      labels = this.state.target.labels
+    }
+
     return (
       <div className="receipe-page">
         <div className="row-flex top">

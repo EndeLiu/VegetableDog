@@ -5,18 +5,23 @@ import './assets/css/common.scss'
 // import App from './App';
 import Home from './pages/Home'
 import Receipe from './pages/Receipe'
+import Library from './pages/Library'
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css'
+
+import MyNav from './components/common/MyNav'
 
 import {HashRouter as Router, Route} from 'react-router-dom' 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div>
     <Router>
+      <MyNav />
       <Route exact path="/" component={Home}></Route>
       <Route path="/receipe" component={Receipe}></Route>
+      <Route path="/lib" component={Library}></Route>
     </Router>
-  </React.StrictMode>,
+  </div>,
   document.getElementById('root')
 );
 

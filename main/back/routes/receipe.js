@@ -18,5 +18,8 @@ router.get('/details', (req, res, next) => {
     }
   }
 })
+router.get('/lib', (req, res, next) => {
+  res.send(moreReceipes)
+})
 
 module.exports = router

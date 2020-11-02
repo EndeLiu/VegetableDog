@@ -2,8 +2,8 @@ import React from 'react'
 import HomeSearch from '../components/Home/HomeSearch'
 import HotSwiper from '../components/Home/HotSwiper'
 import indexLogo from '../assets/img/vegetable dog.png'
-import axios from 'axios'
 
+import {getHotItems} from '../api/index'
 
 class Home extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Home extends React.Component {
     }
   }
   componentDidMount () {
-    axios.get('/api/hotitems').then((res) => {
+    getHotItems().then((res) => {
       if (res && res.status === 200) {
         this.setState({
           hotItems: res.data

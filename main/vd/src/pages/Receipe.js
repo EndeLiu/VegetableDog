@@ -7,19 +7,20 @@ import CornerLabelBox from '../components/common/CornerLabelBox'
 
 import {Table, Steps} from 'antd'
 
-import axios from 'axios'
+import {getReceipeDetails} from '../api/index'
 
 class Receipe extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      target: null
+      target: null,
+      curStep: 100
     }
   }
 
   componentDidMount () {
     console.log(this.props)
-    axios.get('/api/receipe/details' + this.props.location.search).then((res) => {
+    getReceipeDetails(this.props.location.search).then((res) => {
       if (res.status === 200 && res.data) {
         this.setState({
           target: res.data
@@ -34,30 +35,27 @@ class Receipe extends React.Component {
     let src = '../assets/img/noCover.png'
     // const desc = '这里是简介'
     let labels = ['好吃', '肉', '特色']
+    let desc = ''
     const dataSource = [
       {
         key: '1',
         name: '麻辣香肠',
-        count: 1,
-        unit: '包'
+        count: '1包',
       },
       {
         key: '2',
         name: '黄瓜',
-        count: 1,
-        unit: '根'
+        count: '1根',
       },
       {
         key: '3',
         name: '蒜',
         count: '适量',
-        unit: '/'
       },
       {
         key: '4',
         name: '香葱',
         count: '适量',
-        unit: '/'
       },
     ];
     
@@ -71,17 +69,20 @@ class Receipe extends React.Component {
         title: '数量',
         dataIndex: 'count',
         key: 'count',
-      },
-      {
-        title: '单位',
-        dataIndex: 'unit',
-        key: 'unit',
-      },
+      }
     ]
+    let steps = []
 
     if (this.state.target) {
-      src = this.state.target.src
-      labels = this.state.target.labels
+      const {target} = this.state
+      src = target.src
+      labels = target.labels
+      desc = target.desc
+      if (target.steps) {
+        steps = target.steps.map((i, index) => 
+          <Step key={index} title={index} description={i.desc} />
+        )
+      }
     }
 
     return (
@@ -89,7 +90,7 @@ class Receipe extends React.Component {
         <div className="row-flex top">
           <div className="receipe-base-info">     
             <CornerLabelBox label={'简介'}> 
-              <Cover src={src} desc="12" />
+              <Cover src={src} desc={desc} />
               <ReceipeTagGroup tags={labels} />
             </CornerLabelBox>   
           </div>
@@ -100,12 +101,8 @@ class Receipe extends React.Component {
           </div>
           <div className="receipe-make-progress">
             <CornerLabelBox label={'步骤'}>
-              <Steps progressDot current={1} direction="vertical">
-                <Step title="Finished" description="This is a description. This is a description." />
-                <Step title="Finished" description="This is a description. This is a description." />
-                <Step title="In Progress" description="This is a description. This is a description." />
-                <Step title="Waiting" description="This is a description." />
-                <Step title="Waiting" description="This is a description." />
+              <Steps progressDot current={this.state.curStep} direction="vertical">
+                {steps}
               </Steps>
             </CornerLabelBox>
           </div>

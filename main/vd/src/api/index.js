@@ -20,9 +20,9 @@ export function getReceipeDetails (name) {
   })
 }
 
-export function getReceipes () {
+export function getReceipes (page, pageVol) {
   return service.request({
-    url: '/api/receipe/lib',
+    url: `/api/receipe/lib?page=${page}&vol=${pageVol}`,
     method: 'get'
   })
 }

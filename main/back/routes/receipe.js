@@ -19,7 +19,12 @@ router.get('/details', (req, res, next) => {
   }
 })
 router.get('/lib', (req, res, next) => {
-  res.send(moreReceipes)
+  const {page, vol} = req.query
+  res.send(moreReceipes.filter((i, index) => {
+    if (index >= (page - 1) * vol && index < page * vol) {
+      return i
+    }
+  }))
 })
 
 module.exports = router

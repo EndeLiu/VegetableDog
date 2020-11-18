@@ -5,6 +5,7 @@ import './assets/css/common.scss'
 // import App from './App';
 import Home from './pages/Home'
 import Receipe from './pages/Receipe'
+import ReceipeDetails from './pages/ReceipeDetails'
 import Library from './pages/Library'
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css'
@@ -19,6 +20,7 @@ ReactDOM.render(
       <MyNav />
       <Route exact path="/" component={Home}></Route>
       <Route path="/receipe" component={Receipe}></Route>
+      <Route path="/details" component={ReceipeDetails}></Route>
       <Route path="/lib" component={Library}></Route>
     </Router>
   </div>,

@@ -1,3 +1,9 @@
+@media(max-width: 800px) {
+  .col-xs-0 {
+    display: none;
+  }
+}
+
 .col-xs-1 {
   grid-column: span 1;
 }

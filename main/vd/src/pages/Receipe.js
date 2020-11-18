@@ -118,3 +118,4 @@ class Receipe extends React.Component {
 }
 
 export default Receipe
+

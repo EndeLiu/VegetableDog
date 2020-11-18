@@ -46,3 +46,62 @@
   
 }
 
+.content-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+  .receipe-detials-wrapper {
+    border-right: 4px solid #ccc;
+    padding-right: 10px;
+    height: 100vh;
+    overflow: auto;
+  }
+  .content-title {
+    padding: 10px 0px;
+    h1 {
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  .content-desc {
+    padding-left: 10px;
+    border-left: 4px solid #ccc;
+    span {
+      color: #ccc;
+      font-size: 15px;
+      font-weight: lighter;
+    }
+  }
+  .content-cover {
+    padding: 10px;
+    padding-left: 0;
+    img {
+      width: 45%;
+      border-radius: 2px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+  }
+  .content-sub-title {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #555;
+    margin-top: 10px;
+  }
+  .material-table {
+    margin-top: 20px;
+  }
+  .content-steps {
+    .ant-collapse-header {
+      background-color: #fff;
+      font-weight: bolder;
+      color: #777!important;
+      user-select: none;
+    }
+    img {
+      border-radius: 2px;
+      border: 2px solid #ccc;
+    }
+  }
+}
+

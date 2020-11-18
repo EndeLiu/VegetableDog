@@ -28,7 +28,7 @@ class Library extends React.Component {
     })
   }
   choose = (name) => {
-    alert(name)
+    this.props.history.push({pathname: '/details?name=' + name})
   }
   changePage = (index) => {
     console.log(index)
